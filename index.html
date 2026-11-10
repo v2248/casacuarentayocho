@@ -1,33 +1,217 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pangrama / Ejes Variables</title>
-    
+    <title>Casa 48</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    <header>
-        <nav></nav>
-            <ul>
-                <li><a href="./" id="home-link">48</a></li>
-                <li><a href="./trabajos">Trabajos</a></li>
-                <li><a href="./contacto">Contacto</a></li>
-            </ul>
-        </nav>
-        <button id="toggle-theme-btn">Dark / Light</button>
-    </header>
-    <main>
-        <section class="hero">
-            <header>
-                <h1>CASA <br>CUARENTA  <br>Y OCHO</span></h1>
-                <p class="pangrama">Diseñamos <b>imágenes</b> que <i>viajan</i> del <i>sketch</i> al frame, del <i>zoom</i> al <b>píxel</b> y de la <i>web</i> a <b>nuevas formas</b> de mirar.</p>
-                <section>
-                </section>
-            </header>
-        </section>
-    </main>
-    <script src="./js/script.js"></script>
-</body>
-</html>
+
+    <div class="site-shell">
+
+        <!-- HEADER -->
+        <header class="masthead">
+
+            <button
+                id="toggle-theme-btn"
+                class="theme-switch"
+                type="button"
+                aria-label="Cambiar entre modo claro y oscuro"
+            >
+                <span class="theme-light">light</span>
+                <span class="theme-dark">dark</span>
+            </button>
+
+            <div class="crosshair" aria-hidden="true">
+                <span></span>
+            </div>
+
+            <a href="./" class="brand-logo">48</a>
+
+        </header>
+
+
+        <!-- PORTADA -->
+        <main>
+
+            <h1 class="visually-hidden">
+                Casa Cuarenta y Ocho
+            </h1>
+
+            <section class="cover-grid">
+
+                <!-- FILA 1: CASA + FIGURA AZUL -->
+                <div class="grid-row row-one">
+
+                    <div class="grid-cell cell-casa">
+                        <span class="hero-word">CASA</span>
+                    </div>
+
+                    <div class="grid-cell cell-star">
+                        <div class="blue-star"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- FILA 2: CUARENTA -->
+                <div class="grid-row row-two">
+
+                    <div class="grid-cell cell-cuarenta">
+                        <span class="hero-word">CUARENTA</span>
+                    </div>
+
+                </div>
+
+
+                <!-- FILA 3: Y + OCHO + PEACE -->
+                <div class="grid-row row-three">
+
+                    <div class="grid-cell cell-y">
+                        <span class="hero-word">Y</span>
+                    </div>
+
+                    <div class="grid-cell cell-ocho">
+                        <span class="hero-word">OCHO</span>
+                    </div>
+
+                    <div class="grid-cell cell-peace">
+
+                        <svg
+                            class="peace-symbol"
+                            viewBox="0 0 320 160"
+                            preserveAspectRatio="none"
+                            aria-hidden="true"
+                        >
+                            <ellipse
+                                cx="160"
+                                cy="80"
+                                rx="157"
+                                ry="77"
+                            />
+
+                            <line
+                                x1="160"
+                                y1="3"
+                                x2="160"
+                                y2="157"
+                            />
+
+                            <line
+                                x1="160"
+                                y1="87"
+                                x2="60"
+                                y2="139"
+                            />
+
+                            <line
+                                x1="160"
+                                y1="87"
+                                x2="260"
+                                y2="139"
+                            />
+                        </svg>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+<!-- SECCIÓN AMARILLA / ABOUT -->
+<section class="about-section">
+
+    <div class="about-inner">
+
+        <!-- DESCRIPCIÓN -->
+        <p class="about-description">
+            Casa 48 is an audiovisual studio<br class="desktop-break">
+            dedicated to creating images and<br class="desktop-break">
+            visual narratives through
+            <span class="highlight-blue">film,</span><br class="desktop-break">
+            <span class="highlight-blue">photography, motion graphics</span><br class="desktop-break">
+            <span class="highlight-blue">and 3D.</span>
+        </p>
+
+        <!-- CRUZ CENTRAL -->
+        <div class="crosshair about-crosshair" aria-hidden="true">
+            <span></span>
+        </div>
+
+        <!-- ÓVALOS -->
+        <div class="about-ellipses" aria-hidden="true">
+            <div class="about-ellipse ellipse-one"></div>
+            <div class="about-ellipse ellipse-two"></div>
+            <div class="about-ellipse ellipse-three"></div>
+        </div>
+
+        <!-- TEXTO GIGANTE -->
+        <h2 class="about-title" aria-label="A space for visual exploration where different techniques and formats come together to create work with a distinct identity.">
+
+            <span class="about-desktop" aria-hidden="true">
+
+                <span class="about-line">
+                    <span>A</span>
+                    <span>space</span>
+                    <span>for</span>
+                    <span>visual</span>
+                </span>
+
+                <span class="about-line">
+                    <span>exploration</span>
+                    <span>where</span>
+                </span>
+
+                <span class="about-line">
+                    <span>different</span>
+                    <span>techniques</span>
+                    <span>and</span>
+                </span>
+
+                <span class="about-line">
+                    <span>formats</span>
+                    <span>come</span>
+                    <span>together</span>
+                    <span>to</span>
+                </span>
+
+                <span class="about-line">
+                    <span>create</span>
+                    <span>work</span>
+                    <span>with</span>
+                    <span>a</span>
+                    <span>distinct</span>
+                </span>
+
+                <span class="about-line identity-line">
+                    <span>i</span>
+                    <span>d</span>
+                    <span>e</span>
+                    <span>n</span>
+                    <span>t</span>
+                    <span>i</span>
+                    <span>t</span>
+                    <span>y</span>
+                    <span>.</span>
+                </span>
+
+            </span>
+
+            <!-- ADAPTACIÓN MÓVIL -->
+            <span class="about-mobile" aria-hidden="true">
+                A space for visual exploration where
+                different techniques and formats
+                come together to create work with
+                a distinct identity.
+            </span>
+
+        </h2>
+
+    </div>
+
+</section>
