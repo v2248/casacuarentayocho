@@ -927,3 +927,258 @@ body.dark-theme {
     }
 
 }
+
+/* =========================================
+   HEADER — PROPORCIONES DE LA REFERENCIA
+========================================= */
+
+@media (min-width: 901px) {
+
+    /* MÁS ALTURA ENTRE EL BORDE SUPERIOR
+       Y EL INICIO DE CASA */
+
+    .masthead {
+        height: 9.2vw;
+
+        padding:
+            0.6vw
+            0.55vw
+            0;
+    }
+
+    /* LIGHT / DARK
+       MÁS PEQUEÑO Y MÁS CERCA DEL BORDE */
+
+    .theme-switch {
+        width: 12.9vw;
+        height: 3.2vw;
+
+        font-size: 1.25vw;
+    }
+
+    /* CRUZ CENTRAL */
+
+    .crosshair {
+        width: 3.9vw;
+        height: 3.9vw;
+
+        margin-top: 0;
+    }
+
+    /* LOGO 48 */
+
+    .brand-logo {
+        font-family: var(--font);
+
+        font-size: 5.05vw;
+        line-height: 0.85;
+
+        transform: scaleX(1.18);
+        transform-origin: right top;
+    }
+
+}
+
+/* =========================================
+   CASA 48 — RETÍCULA Y PANTALLA COMPLETA
+========================================= */
+
+/* ELIMINAR MÁRGENES EXTERNOS */
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MARCO EXTERIOR
+========================================= */
+
+.site-shell {
+    --cover-row-height: 12.7vw;
+
+    position: relative;
+
+    margin: 0 !important;
+    padding: 0 var(--frame);
+
+    border: 0;
+    border-top: 1px solid var(--grid-color);
+
+    width: 100%;
+}
+
+/* DOS LÍNEAS VERTICALES CONTINUAS */
+
+.site-shell::before,
+.site-shell::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: var(--grid-color);
+
+    pointer-events: none;
+    z-index: 8;
+}
+
+.site-shell::before {
+    left: var(--frame);
+}
+
+.site-shell::after {
+    right: var(--frame);
+}
+
+
+/* =========================================
+   HEADER — ALTURA RESPONSIVE
+========================================= */
+
+.masthead {
+    position: relative;
+
+    margin: 0 !important;
+
+    height: max(
+        115px,
+        calc(100dvh - 3 * var(--cover-row-height) - 1px)
+    );
+
+    min-height: 0;
+    max-height: none;
+
+    padding: 0.6vw 0.55vw 0;
+
+    border-top: 0;
+    border-bottom: 0;
+}
+
+/* ÚNICA LÍNEA DEBAJO DEL HEADER */
+
+.masthead::after {
+    content: "";
+
+    position: absolute;
+
+    left: calc(-1 * var(--frame));
+    right: calc(-1 * var(--frame));
+
+    bottom: -1px;
+
+    width: auto;
+    height: 1px;
+
+    background: var(--grid-color);
+
+    pointer-events: none;
+    z-index: 8;
+}
+
+
+/* =========================================
+   FILAS DE LA PORTADA
+========================================= */
+
+.grid-row {
+    position: relative;
+
+    height: var(--cover-row-height);
+
+    border-top: 0;
+    border-bottom: 0;
+}
+
+/* LÍNEAS HORIZONTALES DE BORDE A BORDE */
+
+.grid-row::after {
+    content: "";
+
+    position: absolute;
+
+    left: calc(-1 * var(--frame));
+    right: calc(-1 * var(--frame));
+
+    bottom: -1px;
+
+    width: auto;
+    height: 1px;
+
+    background: var(--grid-color);
+
+    pointer-events: none;
+    z-index: 8;
+}
+
+.grid-row:last-child {
+    border-bottom: 0;
+}
+
+
+/* =========================================
+   ELEMENTOS SUPERIORES — ESCRITORIO
+========================================= */
+
+@media (min-width: 901px) {
+
+    .theme-switch {
+        width: 12.9vw;
+        height: 3.2vw;
+        font-size: 1.25vw;
+    }
+
+    .masthead .crosshair {
+        width: 3.9vw;
+        height: 3.9vw;
+        margin-top: 0;
+    }
+
+    .brand-logo {
+        font-size: 5.05vw;
+        line-height: 0.85;
+
+        transform: scaleX(1.18);
+        transform-origin: right top;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .site-shell {
+        --cover-row-height: max(50px, 13.5vw);
+    }
+
+    .masthead {
+        height: max(
+            110px,
+            calc(100dvh - 3 * var(--cover-row-height) - 1px)
+        );
+
+        min-height: 0;
+        max-height: none;
+
+        padding: 14px 10px 0;
+    }
+
+    .grid-row {
+        height: var(--cover-row-height);
+        min-height: 0;
+    }
+}
