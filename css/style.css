@@ -1,29 +1,26 @@
 
 /* =========================================
-   CASA 48
-   TIPOGRAFÍAS ORIGINALES
+   CASA 48 — STYLE.CSS COMPLETO
+   Portada naranja + sección amarilla
 ========================================= */
 
 @font-face {
     font-family: 'Fold Grotesque';
-    src: url('../fonts/Fold-Grotesque-Regular.ttf')
-         format('truetype');
+    src: url('../fonts/Fold-Grotesque-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Fold Grotesque';
-    src: url('../fonts/Fold-Grotesque-Italic.ttf')
-         format('truetype');
+    src: url('../fonts/Fold-Grotesque-Italic.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Fold Grotesque';
-    src: url('../fonts/Fold-Grotesque-Bold.ttf')
-         format('truetype');
+    src: url('../fonts/Fold-Grotesque-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
@@ -34,23 +31,24 @@
 ========================================= */
 
 :root {
-    --yellow: #ffff00;
+    --yellow: #f9ff00;
     --orange: #ff5b00;
     --red: #e60000;
     --green: #1b5308;
     --pink: #ff007a;
-    --blue: #0800ff;
+    --blue: #0000ff;
     --black: #0a0a0a;
-    --white: #ecf0f1;
+    --white: #eaeaea;
 
-    /* TU TIPOGRAFÍA ORIGINAL */
+    /* Tipografía original */
     --font: 'Druk Wide Bold';
 
-    --background-color: #ff5b00;
-    --text-color: #0a0a0a;
+    --background-color: var(--orange);
+    --text-color: var(--black);
+    --grid-color: var(--black);
 
-    --grid-color: #0a0a0a;
     --frame: clamp(10px, 2.25vw, 40px);
+    --cover-row-height: 12.7vw;
 }
 
 * {
@@ -58,29 +56,33 @@
 }
 
 html {
+    margin: 0;
+    padding: 0;
     scroll-behavior: auto;
 }
 
 body {
     margin: 0;
     padding: 0;
+    width: 100%;
 
-    background-color: var(--background-color);
+    overflow-x: hidden;
+
+    background: var(--background-color);
     color: var(--text-color);
 
     font-family: var(--font);
-    overflow-x: hidden;
 }
 
 body.dark-theme {
-    --background-color: #0a0a0a;
-    --text-color: #ecf0f1;
-    --grid-color: #ecf0f1;
+    --background-color: var(--black);
+    --text-color: var(--white);
+    --grid-color: var(--white);
 }
 
 
 /* =========================================
-   RETÍCULA GENERAL
+   RETÍCULA CONTINUA
 ========================================= */
 
 .site-shell {
@@ -90,15 +92,34 @@ body.dark-theme {
     min-height: 100vh;
 
     padding: 0 var(--frame);
-
-    border: 1px solid var(--grid-color);
+    border: 0;
 }
 
-.masthead,
-.cover-grid,
-.footer-nav {
-    border-left: 1px solid var(--grid-color);
-    border-right: 1px solid var(--grid-color);
+/* Líneas verticales continuas */
+
+.site-shell::before,
+.site-shell::after {
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: var(--grid-color);
+
+    pointer-events: none;
+    z-index: 8;
+}
+
+.site-shell::before {
+    left: var(--frame);
+}
+
+.site-shell::after {
+    right: var(--frame);
 }
 
 
@@ -114,12 +135,63 @@ body.dark-theme {
     align-items: start;
 
     width: 100%;
-    height: clamp(300px, 37.4vw, 650px);
+
+    height: max(
+        115px,
+        calc(
+            100dvh
+            - var(--cover-row-height)
+            - var(--cover-row-height)
+            - var(--cover-row-height)
+        )
+    );
+
+    min-height: 0;
 
     padding:
-        clamp(18px, 1.7vw, 28px)
-        clamp(12px, 1.8vw, 32px)
+        calc(var(--frame) + 10px)
+        0.55vw
         0;
+
+    border: 0;
+}
+
+/* Línea superior respetando el margen */
+
+.masthead::before {
+    content: '';
+
+    position: absolute;
+
+    top: var(--frame);
+    left: calc(-1 * var(--frame));
+    right: calc(-1 * var(--frame));
+
+    height: 1px;
+
+    background: var(--grid-color);
+
+    pointer-events: none;
+    z-index: 8;
+}
+
+/* Línea horizontal bajo el header */
+
+.masthead::after {
+    content: '';
+
+    position: absolute;
+
+    bottom: 0;
+    left: calc(-1 * var(--frame));
+    right: calc(-1 * var(--frame));
+
+    height: 1px;
+
+    background: var(--grid-color);
+
+    pointer-events: none;
+    z-index: 8;
 }
 
 
@@ -133,11 +205,11 @@ body.dark-theme {
 
     justify-self: start;
 
-    width: clamp(165px, 22vw, 330px);
-    height: clamp(48px, 5.6vw, 80px);
+    width: 12.9vw;
+    height: 3.2vw;
 
-    padding: 0;
     margin: 0;
+    padding: 0;
 
     border: 1px solid var(--grid-color);
     border-radius: 0;
@@ -145,7 +217,7 @@ body.dark-theme {
     background: transparent;
 
     font-family: var(--font);
-    font-size: clamp(14px, 2vw, 28px);
+    font-size: 1.25vw;
     font-weight: 700;
 
     cursor: pointer;
@@ -153,11 +225,12 @@ body.dark-theme {
 
 .theme-switch span {
     display: flex;
-    justify-content: center;
-    align-items: center;
 
     min-width: 0;
     height: 100%;
+
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-light {
@@ -178,19 +251,17 @@ body.dark-theme {
 .crosshair {
     position: relative;
 
-    justify-self: center;
-
-    width: clamp(32px, 4.6vw, 70px);
-    height: clamp(32px, 4.6vw, 70px);
-
-    margin-top: 6px;
+    width: 3.9vw;
+    height: 3.9vw;
 }
 
 /* Círculo */
+
 .crosshair::before {
-    content: "";
+    content: '';
 
     position: absolute;
+
     inset: 14%;
 
     border: 1px solid var(--grid-color);
@@ -198,13 +269,14 @@ body.dark-theme {
 }
 
 /* Línea vertical */
+
 .crosshair::after {
-    content: "";
+    content: '';
 
     position: absolute;
 
-    left: 50%;
     top: 0;
+    left: 50%;
 
     width: 1px;
     height: 100%;
@@ -213,6 +285,7 @@ body.dark-theme {
 }
 
 /* Línea horizontal */
+
 .crosshair span {
     position: absolute;
 
@@ -225,32 +298,57 @@ body.dark-theme {
     background: var(--grid-color);
 }
 
+/* Cruz fija durante TODO el scroll */
 
-/* =========================================
-   LOGO 48
-========================================= */
+.masthead > .crosshair {
+    position: fixed;
 
-.brand-logo {
-    justify-self: end;
+    top: calc(var(--frame) + 10px);
+    left: 50%;
 
-    display: block;
+    margin: 0;
 
-    font-family: var(--font);
-    font-size: clamp(54px, 7.25vw, 115px);
-    font-weight: 700;
+    transform: translateX(-50%);
 
-    line-height: 0.85;
-    letter-spacing: 0;
+    z-index: 9999;
 
-    color: var(--green);
-
-    text-decoration: none;
-    white-space: nowrap;
+    pointer-events: none;
 }
 
 
 /* =========================================
-   RETÍCULA TIPOGRÁFICA
+   LOGO 48 VECTORIAL
+========================================= */
+
+.masthead > .brand-logo {
+    grid-column: 3;
+
+    justify-self: end;
+    align-self: start;
+
+    display: block;
+
+    width: clamp(82px, 12.6vw, 235px);
+    height: auto;
+
+    color: var(--green);
+
+    line-height: 0;
+    text-decoration: none;
+
+    transform: none;
+}
+
+.brand-logo svg {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================================
+   PORTADA: RETÍCULA TIPOGRÁFICA
 ========================================= */
 
 .cover-grid {
@@ -258,16 +356,33 @@ body.dark-theme {
 }
 
 .grid-row {
+    position: relative;
+
     display: grid;
 
     width: 100%;
-    height: 12.7vw;
+    height: var(--cover-row-height);
 
-    border-top: 1px solid var(--grid-color);
+    border: 0;
 }
 
-.grid-row:last-child {
-    border-bottom: 1px solid var(--grid-color);
+/* Líneas horizontales hasta los extremos */
+
+.grid-row::after {
+    content: '';
+
+    position: absolute;
+
+    bottom: 0;
+    left: calc(-1 * var(--frame));
+    right: calc(-1 * var(--frame));
+
+    height: 1px;
+
+    background: var(--grid-color);
+
+    pointer-events: none;
+    z-index: 8;
 }
 
 .grid-cell {
@@ -289,7 +404,7 @@ body.dark-theme {
 
 /* =========================================
    TIPOGRAFÍA GIGANTE
-   DRUK WIDE BOLD ORIGINAL
+   DRUK WIDE BOLD
 ========================================= */
 
 .hero-word {
@@ -312,7 +427,7 @@ body.dark-theme {
 
 
 /* =========================================
-   FILA 1: CASA / ESTRELLA
+   FILA 1: CASA + FIGURA AZUL
 ========================================= */
 
 .row-one {
@@ -323,10 +438,6 @@ body.dark-theme {
     justify-content: flex-start;
 }
 
-.cell-star {
-    position: relative;
-}
-
 .blue-star {
     position: absolute;
 
@@ -335,7 +446,7 @@ body.dark-theme {
     width: 100%;
     height: 100%;
 
-    background-color: var(--blue);
+    background: var(--blue);
 
     clip-path: polygon(
         18.7% 0%,
@@ -363,24 +474,20 @@ body.dark-theme {
 
 
 /* =========================================
-   FILA 3: Y / OCHO / PEACE
+   FILA 3: Y + OCHO + PEACE
 ========================================= */
 
 .row-three {
-    grid-template-columns:
-        15.3% 58.4% 26.3%;
+    grid-template-columns: 15.3% 58.4% 26.3%;
 }
 
-.cell-y {
+.cell-y,
+.cell-ocho {
     justify-content: flex-start;
 }
 
 .cell-y .hero-word {
     color: var(--white);
-}
-
-.cell-ocho {
-    justify-content: flex-start;
 }
 
 .cell-peace {
@@ -404,34 +511,6 @@ body.dark-theme {
 
 
 /* =========================================
-   NAVEGACIÓN INFERIOR
-========================================= */
-
-.footer-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-top: 6vw;
-    padding: 24px;
-
-    border-top: 1px solid var(--grid-color);
-
-    font-family: var(--font);
-    font-size: clamp(16px, 2vw, 28px);
-}
-
-.footer-nav a {
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.footer-nav a:hover {
-    color: var(--pink);
-}
-
-
-/* =========================================
    ACCESIBILIDAD
 ========================================= */
 
@@ -450,143 +529,7 @@ body.dark-theme {
 
 
 /* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 900px) {
-
-    .masthead {
-        height: clamp(300px, 44vw, 480px);
-    }
-
-    .theme-switch {
-        width: clamp(160px, 24vw, 230px);
-        height: clamp(48px, 6vw, 65px);
-        font-size: clamp(14px, 2vw, 21px);
-    }
-
-    .brand-logo {
-        font-size: 7.25vw;
-    }
-
-    .crosshair {
-        width: 4.6vw;
-        height: 4.6vw;
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .site-shell {
-        --frame: 10px;
-    }
-
-    /* HEADER */
-
-    .masthead {
-        height: 52svh;
-        min-height: 300px;
-        max-height: 540px;
-
-        padding: 14px 10px 0;
-    }
-
-    /* LIGHT / DARK */
-
-    .theme-switch {
-        width: 140px;
-        height: 42px;
-
-        font-size: 13px;
-    }
-
-    /* CRUZ */
-
-    .crosshair {
-        width: 30px;
-        height: 30px;
-
-        margin-top: 5px;
-    }
-
-    /* 48 */
-
-    .brand-logo {
-        font-size: clamp(38px, 9vw, 55px);
-        line-height: 0.9;
-    }
-
-    /* FILAS */
-
-    .grid-row {
-        height: 13.5vw;
-        min-height: 50px;
-    }
-
-    /* MISMA TIPOGRAFÍA ORIGINAL */
-
-    .hero-word {
-        font-family: var(--font);
-        font-size: 10.7vw;
-        font-weight: 700;
-
-        padding-left: 3px;
-
-        line-height: 0.8;
-        letter-spacing: 0;
-    }
-
-    /* CASA + ESTRELLA */
-
-    .row-one {
-        grid-template-columns: 52.7% 47.3%;
-    }
-
-    /* Y + OCHO + SÍMBOLO */
-
-    .row-three {
-        grid-template-columns:
-            15.3% 58.4% 26.3%;
-    }
-
-    .peace-symbol {
-        stroke-width: 5;
-    }
-
-    /* NAVEGACIÓN */
-
-    .footer-nav {
-        margin-top: 60px;
-        padding: 18px 10px;
-
-        font-size: 14px;
-    }
-
-}
-
-/* =========================================
-   CASA 48 — COLORES EXACTOS
-========================================= */
-
-:root {
-    --yellow: #f9ff00;
-    --blue: #0000ff;
-    --white: #eaeaea;
-}
-
-/* Gris exacto de la Y */
-.cell-y .hero-word {
-    color: var(--white);
-}
-
-
-/* =========================================
-   SEGUNDA SECCIÓN — ABOUT
+   SECCIÓN AMARILLA
 ========================================= */
 
 .about-section {
@@ -595,10 +538,8 @@ body.dark-theme {
     width: calc(100% + 2 * var(--frame));
     margin-left: calc(-1 * var(--frame));
 
-    background: #f9ff00;
-    color: #0a0a0a;
-
-    border-top: 1px solid #0a0a0a;
+    background: var(--yellow);
+    color: var(--black);
 
     overflow: hidden;
 }
@@ -610,14 +551,12 @@ body.dark-theme {
     min-height: 760px;
 
     margin: 0 var(--frame);
-
-    border-left: 1px solid #0a0a0a;
-    border-right: 1px solid #0a0a0a;
 }
 
 
 /* =========================================
-   DESCRIPCIÓN SUPERIOR IZQUIERDA
+   DESCRIPCIÓN SUPERIOR
+   FOLD GROTESQUE
 ========================================= */
 
 .about-description {
@@ -632,104 +571,120 @@ body.dark-theme {
     max-width: 470px;
 
     margin: 0;
+    padding: 0;
 
     font-family: 'Fold Grotesque', sans-serif;
     font-size: clamp(15px, 1.78vw, 30px);
     font-weight: 400;
+    font-style: normal;
 
     line-height: 1.2;
     letter-spacing: 0;
 
-    text-align: justify;
-    color: #0a0a0a;
+    color: var(--black);
 }
 
-.highlight-blue {
-    background-color: #0000ff;
-    color: #eaeaea;
+.about-description-desktop {
+    display: block;
+}
+
+.about-description-mobile {
+    display: none;
+}
+
+
+/* =========================================
+   JUSTIFICACIÓN DE CADA LÍNEA
+========================================= */
+
+.about-copy-line {
+    display: flex;
+
+    width: 100%;
+
+    align-items: baseline;
+    justify-content: space-between;
+
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+.about-copy-line > span {
+    flex: 0 0 auto;
+}
+
+/* Palabras resaltadas en azul */
+
+.about-highlight {
+    background: var(--blue);
+    color: var(--white);
 
     padding: 0 2px;
 
-    box-decoration-break: clone;
+    white-space: nowrap;
+
     -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+/* Líneas completas resaltadas */
+
+.about-description-desktop .full-blue,
+.about-description-desktop
+.last-copy-line .about-highlight {
+    display: block;
+
+    width: 100%;
+
+    text-align: justify;
+    text-align-last: justify;
+}
+
+.about-description-desktop .last-copy-line {
+    justify-content: flex-start;
 }
 
 
 /* =========================================
-   CRUZ CENTRAL
-========================================= */
-
-.about-crosshair {
-    position: absolute;
-
-    top: 2vw;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 4.5vw;
-    height: 4.5vw;
-
-    margin: 0;
-
-    z-index: 3;
-}
-
-.about-crosshair::before {
-    border-color: #0a0a0a;
-}
-
-.about-crosshair::after,
-.about-crosshair span {
-    background-color: #0a0a0a;
-}
-
-
-/* =========================================
-   TRES ÓVALOS NEGROS
+   TRES ÓVALOS ORIGINALES
 ========================================= */
 
 .about-ellipses {
     position: absolute;
 
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
+    top: 24%;
+    left: 0;
 
     z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
 
     pointer-events: none;
 }
 
 .about-ellipse {
-    position: absolute;
-
-    left: 0;
+    display: block;
+    flex: 0 0 auto;
 
     width: 100%;
-    height: 15.5%;
+    height: auto;
 
-    border: 1px solid #0a0a0a;
+    aspect-ratio: 9.8 / 1;
+
+    margin: 0;
+
+    border: 1px solid var(--black);
     border-radius: 50%;
-}
 
-.ellipse-one {
-    top: 24%;
-}
-
-.ellipse-two {
-    top: 40%;
-}
-
-.ellipse-three {
-    top: 56%;
+    background: transparent;
 }
 
 
 /* =========================================
-   FRASE GIGANTE
-   DRUK WIDE BOLD ORIGINAL
+   TEXTO GIGANTE — DRUK WIDE BOLD
 ========================================= */
 
 .about-title {
@@ -741,18 +696,19 @@ body.dark-theme {
 
     z-index: 2;
 
+    width: 100%;
+
     margin: 0;
     padding: 0 0.4vw;
 
     font-family: var(--font);
-    font-size: clamp(42px, 5.45vw, 102px);
+    font-size: 5.45vw;
     font-weight: 700;
 
     line-height: 1.15;
     letter-spacing: -0.025em;
 
-    color: #0a0a0a;
-    text-transform: none;
+    color: var(--black);
 }
 
 .about-desktop {
@@ -760,11 +716,16 @@ body.dark-theme {
     width: 100%;
 }
 
+
+/* =========================================
+   ESPACIOS ENTRE PALABRAS
+========================================= */
+
 .about-line {
     display: flex;
 
-    justify-content: space-between;
     align-items: baseline;
+    justify-content: space-between;
 
     width: 100%;
     min-height: 1.15em;
@@ -774,117 +735,102 @@ body.dark-theme {
 
 .about-line > span {
     display: block;
+    flex: 0 0 auto;
 }
 
-/* Última línea:
-   I D E N T I T Y . */
+/* I D E N T I T Y . */
 
 .identity-line {
     justify-content: space-between;
     letter-spacing: 0;
 }
 
-.about-mobile {
-    display: none;
-}
-
 
 /* =========================================
-   ADAPTACIÓN TABLET Y MÓVIL
+   TABLET Y MÓVIL
 ========================================= */
 
 @media (max-width: 900px) {
 
+    /* HEADER */
+
+    .theme-switch {
+        width: clamp(160px, 24vw, 230px);
+        height: clamp(48px, 6vw, 65px);
+
+        font-size: clamp(14px, 2vw, 21px);
+    }
+
+    .masthead > .crosshair {
+        width: 4.6vw;
+        height: 4.6vw;
+    }
+
+
+    /* SECCIÓN AMARILLA */
+
     .about-inner {
-        height: auto;
-        min-height: 900px;
+        height: 145vw;
+        min-height: 0;
 
-        padding: 0 12px 90px;
+        padding: 0;
     }
 
-    /* Descripción */
 
-    .about-description {
-        position: relative;
+    /* DESCRIPCIÓN MÓVIL */
 
-        top: auto;
-        left: auto;
-
-        width: 100%;
-        max-width: 570px;
-
-        padding-top: 85px;
-        margin: 0;
-
-        font-size: clamp(17px, 3vw, 24px);
-        line-height: 1.25;
-
-        text-align: left;
-    }
-
-    .desktop-break {
+    .about-description-desktop {
         display: none;
     }
 
-    /* Cruz */
+    .about-description-mobile {
+        display: block;
 
-    .about-crosshair {
-        top: 18px;
-        left: 50%;
+        top: 16.5vw;
+        left: 2.5vw;
 
-        width: 34px;
-        height: 34px;
+        width: 83.5vw;
+        max-width: none;
+
+        font-size: 2.95vw;
+        line-height: 1.45;
     }
 
-    /* Óvalos */
-
-    .about-ellipse {
-        height: 15%;
+    .about-description-mobile .about-copy-line {
+        line-height: 1.45;
     }
 
-    .ellipse-one {
-        top: 39%;
+    .about-blue-group {
+        display: inline-flex;
+
+        align-items: baseline;
+        gap: 0.2em;
+
+        white-space: nowrap;
     }
 
-    .ellipse-two {
-        top: 54%;
+    .about-description-mobile .last-copy-line {
+        justify-content: flex-start;
+        gap: 0.3em;
     }
 
-    .ellipse-three {
-        top: 69%;
+
+    /* ÓVALOS: CONSERVAR PROPORCIÓN */
+
+    .about-ellipses {
+        top: 48%;
     }
 
-    /* Tipografía */
+
+    /* TEXTO GIGANTE MÓVIL */
 
     .about-title {
-        position: relative;
+        top: 54%;
 
-        top: auto;
-        left: auto;
-        right: auto;
+        font-size: 5.45vw;
+        line-height: 1.15;
 
-        margin-top: 160px;
-        padding: 0;
-
-        font-family: var(--font);
-        font-size: clamp(36px, 8.2vw, 70px);
-        font-weight: 700;
-
-        line-height: 1.2;
         letter-spacing: -0.025em;
-
-        overflow-wrap: break-word;
-    }
-
-    /* En móvil el texto se adapta
-       al ancho de la pantalla */
-
-    .about-desktop {
-        display: none;
-    }
-
-    .about-mobile {
-        display: block;
     }
 
 }
@@ -894,291 +840,104 @@ body.dark-theme {
    MÓVIL PEQUEÑO
 ========================================= */
 
-@media (max-width: 480px) {
-
-    .about-inner {
-        min-height: 850px;
-        padding: 0 10px 70px;
-    }
-
-    .about-description {
-        padding-top: 75px;
-
-        font-size: clamp(16px, 4.5vw, 19px);
-        line-height: 1.25;
-    }
-
-    .about-crosshair {
-        top: 16px;
-
-        width: 30px;
-        height: 30px;
-    }
-
-    .about-title {
-        margin-top: 145px;
-
-        font-size: 8.2vw;
-        line-height: 1.22;
-    }
-
-    .about-ellipse {
-        height: 13%;
-    }
-
-}
-
-/* =========================================
-   HEADER — PROPORCIONES DE LA REFERENCIA
-========================================= */
-
-@media (min-width: 901px) {
-
-    /* MÁS ALTURA ENTRE EL BORDE SUPERIOR
-       Y EL INICIO DE CASA */
-
-    .masthead {
-        height: 9.2vw;
-
-        padding:
-            0.6vw
-            0.55vw
-            0;
-    }
-
-    /* LIGHT / DARK
-       MÁS PEQUEÑO Y MÁS CERCA DEL BORDE */
-
-    .theme-switch {
-        width: 12.9vw;
-        height: 3.2vw;
-
-        font-size: 1.25vw;
-    }
-
-    /* CRUZ CENTRAL */
-
-    .crosshair {
-        width: 3.9vw;
-        height: 3.9vw;
-
-        margin-top: 0;
-    }
-
-    /* LOGO 48 */
-
-    .brand-logo {
-        font-family: var(--font);
-
-        font-size: 5.05vw;
-        line-height: 0.85;
-
-        transform: scaleX(1.18);
-        transform-origin: right top;
-    }
-
-}
-
-/* =========================================
-   CASA 48 — RETÍCULA Y PANTALLA COMPLETA
-========================================= */
-
-/* ELIMINAR MÁRGENES EXTERNOS */
-
-html,
-body {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100%;
-}
-
-body {
-    overflow-x: hidden;
-}
-
-
-/* =========================================
-   MARCO EXTERIOR
-========================================= */
-
-.site-shell {
-    --cover-row-height: 12.7vw;
-
-    position: relative;
-
-    margin: 0 !important;
-    padding: 0 var(--frame);
-
-    border: 0;
-    border-top: 1px solid var(--grid-color);
-
-    width: 100%;
-}
-
-/* DOS LÍNEAS VERTICALES CONTINUAS */
-
-.site-shell::before,
-.site-shell::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    width: 1px;
-
-    background: var(--grid-color);
-
-    pointer-events: none;
-    z-index: 8;
-}
-
-.site-shell::before {
-    left: var(--frame);
-}
-
-.site-shell::after {
-    right: var(--frame);
-}
-
-
-/* =========================================
-   HEADER — ALTURA RESPONSIVE
-========================================= */
-
-.masthead {
-    position: relative;
-
-    margin: 0 !important;
-
-    height: max(
-        115px,
-        calc(100dvh - 3 * var(--cover-row-height) - 1px)
-    );
-
-    min-height: 0;
-    max-height: none;
-
-    padding: 0.6vw 0.55vw 0;
-
-    border-top: 0;
-    border-bottom: 0;
-}
-
-/* ÚNICA LÍNEA DEBAJO DEL HEADER */
-
-.masthead::after {
-    content: "";
-
-    position: absolute;
-
-    left: calc(-1 * var(--frame));
-    right: calc(-1 * var(--frame));
-
-    bottom: -1px;
-
-    width: auto;
-    height: 1px;
-
-    background: var(--grid-color);
-
-    pointer-events: none;
-    z-index: 8;
-}
-
-
-/* =========================================
-   FILAS DE LA PORTADA
-========================================= */
-
-.grid-row {
-    position: relative;
-
-    height: var(--cover-row-height);
-
-    border-top: 0;
-    border-bottom: 0;
-}
-
-/* LÍNEAS HORIZONTALES DE BORDE A BORDE */
-
-.grid-row::after {
-    content: "";
-
-    position: absolute;
-
-    left: calc(-1 * var(--frame));
-    right: calc(-1 * var(--frame));
-
-    bottom: -1px;
-
-    width: auto;
-    height: 1px;
-
-    background: var(--grid-color);
-
-    pointer-events: none;
-    z-index: 8;
-}
-
-.grid-row:last-child {
-    border-bottom: 0;
-}
-
-
-/* =========================================
-   ELEMENTOS SUPERIORES — ESCRITORIO
-========================================= */
-
-@media (min-width: 901px) {
-
-    .theme-switch {
-        width: 12.9vw;
-        height: 3.2vw;
-        font-size: 1.25vw;
-    }
-
-    .masthead .crosshair {
-        width: 3.9vw;
-        height: 3.9vw;
-        margin-top: 0;
-    }
-
-    .brand-logo {
-        font-size: 5.05vw;
-        line-height: 0.85;
-
-        transform: scaleX(1.18);
-        transform-origin: right top;
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
 @media (max-width: 600px) {
 
     .site-shell {
+        --frame: 10px;
         --cover-row-height: max(50px, 13.5vw);
     }
+
+
+    /* HEADER */
 
     .masthead {
         height: max(
             110px,
-            calc(100dvh - 3 * var(--cover-row-height) - 1px)
+            calc(
+                100dvh
+                - var(--cover-row-height)
+                - var(--cover-row-height)
+                - var(--cover-row-height)
+            )
         );
 
-        min-height: 0;
-        max-height: none;
-
-        padding: 14px 10px 0;
+        padding:
+            calc(var(--frame) + 10px)
+            10px
+            0;
     }
 
-    .grid-row {
-        height: var(--cover-row-height);
-        min-height: 0;
+
+    /* LIGHT / DARK */
+
+    .theme-switch {
+        width: 140px;
+        height: 42px;
+
+        font-size: 13px;
     }
+
+
+    /* CRUZ */
+
+    .masthead > .crosshair {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    /* PORTADA */
+
+    .hero-word {
+        padding-left: 3px;
+
+        font-size: 10.7vw;
+        line-height: 0.8;
+    }
+
+    .peace-symbol {
+        stroke-width: 5;
+    }
+
+}
+
+/* =========================================
+   CASA 48 — HOVER EN RECUADROS
+========================================= */
+
+/* Transición suave */
+
+.cell-casa,
+.cell-cuarenta,
+.cell-y,
+.cell-ocho {
+    transition: background-color 0.2s ease;
+}
+
+/* HOVER — SOLO ESCRITORIO */
+
+@media (hover: hover) and (pointer: fine) {
+
+    /* Fondo negro en cada recuadro */
+
+    .cell-casa:hover,
+    .cell-cuarenta:hover,
+    .cell-y:hover,
+    .cell-ocho:hover {
+        background-color: #0a0a0a;
+    }
+
+    /* Tipografía sin relleno,
+       únicamente contorno naranja */
+
+    .cell-casa:hover .hero-word,
+    .cell-cuarenta:hover .hero-word,
+    .cell-y:hover .hero-word,
+    .cell-ocho:hover .hero-word {
+        color: transparent;
+
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1.2px #ff5b00;
+    }
+
 }

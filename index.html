@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,208 +11,338 @@
 
 <body>
 
-    <div class="site-shell">
+<div class="site-shell">
 
-        <!-- HEADER -->
-        <header class="masthead">
+    <!-- =====================================
+         HEADER
+    ====================================== -->
 
-            <button
-                id="toggle-theme-btn"
-                class="theme-switch"
-                type="button"
-                aria-label="Cambiar entre modo claro y oscuro"
-            >
-                <span class="theme-light">light</span>
-                <span class="theme-dark">dark</span>
-            </button>
+    <header class="masthead">
 
-            <div class="crosshair" aria-hidden="true">
-                <span></span>
-            </div>
+        <!-- LIGHT / DARK -->
+        <button
+            id="toggle-theme-btn"
+            class="theme-switch"
+            type="button"
+            aria-label="Cambiar entre modo claro y oscuro"
+        >
+            <span class="theme-light">light</span>
+            <span class="theme-dark">dark</span>
+        </button>
 
-            <a href="./" class="brand-logo">48</a>
-
-        </header>
-
-
-        <!-- PORTADA -->
-        <main>
-
-            <h1 class="visually-hidden">
-                Casa Cuarenta y Ocho
-            </h1>
-
-            <section class="cover-grid">
-
-                <!-- FILA 1: CASA + FIGURA AZUL -->
-                <div class="grid-row row-one">
-
-                    <div class="grid-cell cell-casa">
-                        <span class="hero-word">CASA</span>
-                    </div>
-
-                    <div class="grid-cell cell-star">
-                        <div class="blue-star"></div>
-                    </div>
-
-                </div>
-
-
-                <!-- FILA 2: CUARENTA -->
-                <div class="grid-row row-two">
-
-                    <div class="grid-cell cell-cuarenta">
-                        <span class="hero-word">CUARENTA</span>
-                    </div>
-
-                </div>
-
-
-                <!-- FILA 3: Y + OCHO + PEACE -->
-                <div class="grid-row row-three">
-
-                    <div class="grid-cell cell-y">
-                        <span class="hero-word">Y</span>
-                    </div>
-
-                    <div class="grid-cell cell-ocho">
-                        <span class="hero-word">OCHO</span>
-                    </div>
-
-                    <div class="grid-cell cell-peace">
-
-                        <svg
-                            class="peace-symbol"
-                            viewBox="0 0 320 160"
-                            preserveAspectRatio="none"
-                            aria-hidden="true"
-                        >
-                            <ellipse
-                                cx="160"
-                                cy="80"
-                                rx="157"
-                                ry="77"
-                            />
-
-                            <line
-                                x1="160"
-                                y1="3"
-                                x2="160"
-                                y2="157"
-                            />
-
-                            <line
-                                x1="160"
-                                y1="87"
-                                x2="60"
-                                y2="139"
-                            />
-
-                            <line
-                                x1="160"
-                                y1="87"
-                                x2="260"
-                                y2="139"
-                            />
-                        </svg>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-        </main>
-
-<!-- SECCIÓN AMARILLA / ABOUT -->
-<section class="about-section">
-
-    <div class="about-inner">
-
-        <!-- DESCRIPCIÓN -->
-        <p class="about-description">
-            Casa 48 is an audiovisual studio<br class="desktop-break">
-            dedicated to creating images and<br class="desktop-break">
-            visual narratives through
-            <span class="highlight-blue">film,</span><br class="desktop-break">
-            <span class="highlight-blue">photography, motion graphics</span><br class="desktop-break">
-            <span class="highlight-blue">and 3D.</span>
-        </p>
-
-        <!-- CRUZ CENTRAL -->
-        <div class="crosshair about-crosshair" aria-hidden="true">
+        <!-- CRUZ FIJA -->
+        <div class="crosshair" aria-hidden="true">
             <span></span>
         </div>
 
-        <!-- ÓVALOS -->
-        <div class="about-ellipses" aria-hidden="true">
-            <div class="about-ellipse ellipse-one"></div>
-            <div class="about-ellipse ellipse-two"></div>
-            <div class="about-ellipse ellipse-three"></div>
-        </div>
+        <!-- LOGO 48 VECTORIAL -->
+        <a href="./" class="brand-logo" aria-label="Casa 48">
 
-        <!-- TEXTO GIGANTE -->
-        <h2 class="about-title" aria-label="A space for visual exploration where different techniques and formats come together to create work with a distinct identity.">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="219 309 271 90"
+                aria-hidden="true"
+            >
+                <path
+                    fill="currentColor"
+                    d="M221.02,355.27l83.86-39.87h32.3v39.87h17.05v23.98s-17.05,0-17.05,0v14.02h-32.3v-14.02h-83.86v-23.98ZM304.88,355.27v-14.91l-44.41,14.91h44.41Z"
+                />
 
-            <span class="about-desktop" aria-hidden="true">
+                <path
+                    fill="currentColor"
+                    d="M475.85,353.53s9.82-5.4,9.82-16.95c0-13.72-11.22-25.16-60.98-25.16-45.79,0-61.33,9.77-61.46,23.73-.15,15.37,10.25,18.39,10.25,18.39,0,0-12.01,5.08-12.01,19.33,0,11.47,10.98,24.4,63.22,24.4s62.95-11.12,62.95-24.4c0-14.24-11.79-19.33-11.79-19.33ZM424.69,337.71c19.36,0,29.84-.08,29.84,3.92s-9.77,3.22-29.84,3.26c-24.36.05-30.2.38-30.2-3.26,0-3.92,5.79-3.92,30.2-3.92ZM424.71,370.09c-25.85-.05-31.91.73-31.91-3.37,0-4.46,5.84-3.99,31.9-3.99,24.66,0,31.7,0,31.7,3.99s-7.03,3.41-31.69,3.37Z"
+                />
+            </svg>
 
-                <span class="about-line">
-                    <span>A</span>
-                    <span>space</span>
-                    <span>for</span>
-                    <span>visual</span>
-                </span>
+        </a>
 
-                <span class="about-line">
-                    <span>exploration</span>
-                    <span>where</span>
-                </span>
+    </header>
 
-                <span class="about-line">
-                    <span>different</span>
-                    <span>techniques</span>
-                    <span>and</span>
-                </span>
 
-                <span class="about-line">
-                    <span>formats</span>
-                    <span>come</span>
-                    <span>together</span>
-                    <span>to</span>
-                </span>
+    <!-- =====================================
+         PORTADA NARANJA
+    ====================================== -->
 
-                <span class="about-line">
-                    <span>create</span>
-                    <span>work</span>
-                    <span>with</span>
-                    <span>a</span>
-                    <span>distinct</span>
-                </span>
+    <main>
 
-                <span class="about-line identity-line">
-                    <span>i</span>
-                    <span>d</span>
-                    <span>e</span>
-                    <span>n</span>
-                    <span>t</span>
-                    <span>i</span>
-                    <span>t</span>
-                    <span>y</span>
-                    <span>.</span>
-                </span>
+        <h1 class="visually-hidden">
+            Casa Cuarenta y Ocho
+        </h1>
 
-            </span>
+        <section class="cover-grid">
 
-            <!-- ADAPTACIÓN MÓVIL -->
-            <span class="about-mobile" aria-hidden="true">
-                A space for visual exploration where
-                different techniques and formats
-                come together to create work with
-                a distinct identity.
-            </span>
+            <!-- FILA 1: CASA + FIGURA AZUL -->
+            <div class="grid-row row-one">
 
-        </h2>
+                <div class="grid-cell cell-casa">
+                    <span class="hero-word">CASA</span>
+                </div>
 
-    </div>
+                <div class="grid-cell cell-star">
+                    <div class="blue-star"></div>
+                </div>
 
-</section>
+            </div>
+
+
+            <!-- FILA 2: CUARENTA -->
+            <div class="grid-row row-two">
+
+                <div class="grid-cell cell-cuarenta">
+                    <span class="hero-word">CUARENTA</span>
+                </div>
+
+            </div>
+
+
+            <!-- FILA 3: Y + OCHO + PEACE -->
+            <div class="grid-row row-three">
+
+                <div class="grid-cell cell-y">
+                    <span class="hero-word">Y</span>
+                </div>
+
+                <div class="grid-cell cell-ocho">
+                    <span class="hero-word">OCHO</span>
+                </div>
+
+                <div class="grid-cell cell-peace">
+
+                    <svg
+                        class="peace-symbol"
+                        viewBox="0 0 320 160"
+                        preserveAspectRatio="none"
+                        aria-hidden="true"
+                    >
+                        <ellipse
+                            cx="160"
+                            cy="80"
+                            rx="157"
+                            ry="77"
+                        />
+
+                        <line
+                            x1="160"
+                            y1="3"
+                            x2="160"
+                            y2="157"
+                        />
+
+                        <line
+                            x1="160"
+                            y1="87"
+                            x2="60"
+                            y2="139"
+                        />
+
+                        <line
+                            x1="160"
+                            y1="87"
+                            x2="260"
+                            y2="139"
+                        />
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             SECCIÓN AMARILLA
+        ====================================== -->
+
+        <section class="about-section">
+
+            <div class="about-inner">
+
+                <!-- DESCRIPCIÓN ESCRITORIO -->
+                <p class="about-description about-description-desktop">
+
+                    <span class="about-copy-line">
+                        <span>Casa</span>
+                        <span>48</span>
+                        <span>is</span>
+                        <span>an</span>
+                        <span>audiovisual</span>
+                        <span>studio</span>
+                    </span>
+
+                    <span class="about-copy-line">
+                        <span>dedicated</span>
+                        <span>to</span>
+                        <span>creating</span>
+                        <span>images</span>
+                        <span>and</span>
+                    </span>
+
+                    <span class="about-copy-line">
+                        <span>visual</span>
+                        <span>narratives</span>
+                        <span>through</span>
+                        <span class="about-highlight">film,</span>
+                    </span>
+
+                    <span class="about-copy-line">
+                        <span class="about-highlight full-blue">
+                            photography, motion graphics
+                        </span>
+                    </span>
+
+                    <span class="about-copy-line last-copy-line">
+                        <span class="about-highlight">and 3D.</span>
+                    </span>
+
+                </p>
+
+
+                <!-- DESCRIPCIÓN MÓVIL -->
+                <p class="about-description about-description-mobile">
+
+                    <span class="about-copy-line">
+                        <span>Casa</span>
+                        <span>48</span>
+                        <span>is</span>
+                        <span>an</span>
+                        <span>audiovisual</span>
+                        <span>studio</span>
+                        <span>dedicated</span>
+                        <span>to</span>
+                        <span>creating</span>
+                    </span>
+
+                    <span class="about-copy-line">
+                        <span>images</span>
+                        <span>and</span>
+                        <span>visual</span>
+                        <span>narratives</span>
+                        <span>through</span>
+
+                        <span class="about-blue-group">
+                            <span class="about-highlight">film,</span>
+                            <span class="about-highlight">photography,</span>
+                        </span>
+                    </span>
+
+                    <span class="about-copy-line last-copy-line">
+                        <span class="about-highlight">
+                            motion graphics
+                        </span>
+
+                        <span class="about-highlight">
+                            and 3D.
+                        </span>
+                    </span>
+
+                </p>
+
+
+                <!-- =====================================
+                     TRES ÓVALOS
+                ====================================== -->
+
+                <div class="about-ellipses" aria-hidden="true">
+
+                    <div class="about-ellipse"></div>
+                    <div class="about-ellipse"></div>
+                    <div class="about-ellipse"></div>
+
+                </div>
+
+
+                <!-- =====================================
+                     TEXTO GIGANTE
+                     ESCRITORIO + MÓVIL
+                ====================================== -->
+
+                <h2
+                    class="about-title"
+                    aria-label="A space for visual exploration where different techniques and formats come together to create work with a distinct identity."
+                >
+
+                    <!--
+                    Clase independiente para evitar
+                    que las reglas de about-desktop
+                    oculten esta frase.
+                    -->
+
+                    <span
+                        class="about-heading-lines"
+                        style="display: block; width: 100%;"
+                        aria-hidden="true"
+                    >
+
+                        <!-- LÍNEA 1 -->
+                        <span class="about-line">
+                            <span>A</span>
+                            <span>space</span>
+                            <span>for</span>
+                            <span>visual</span>
+                        </span>
+
+
+                        <!-- LÍNEA 2 -->
+                        <span class="about-line">
+                            <span>exploration</span>
+                            <span>where</span>
+                        </span>
+
+
+                        <!-- LÍNEA 3 -->
+                        <span class="about-line">
+                            <span>different</span>
+                            <span>techniques</span>
+                            <span>and</span>
+                        </span>
+
+
+                        <!-- LÍNEA 4 -->
+                        <span class="about-line">
+                            <span>formats</span>
+                            <span>come</span>
+                            <span>together</span>
+                            <span>to</span>
+                        </span>
+
+
+                        <!-- LÍNEA 5 -->
+                        <span class="about-line">
+                            <span>create</span>
+                            <span>work</span>
+                            <span>with</span>
+                            <span>a</span>
+                            <span>distinct</span>
+                        </span>
+
+
+                        <!-- LÍNEA 6 -->
+                        <span class="about-line identity-line">
+                            <span>i</span>
+                            <span>d</span>
+                            <span>e</span>
+                            <span>n</span>
+                            <span>t</span>
+                            <span>i</span>
+                            <span>t</span>
+                            <span>y</span>
+                            <span>.</span>
+                        </span>
+
+                    </span>
+
+                </h2>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="./js/script.js"></script>
+
+</body>
+</html>
