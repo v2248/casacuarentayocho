@@ -4,7 +4,23 @@
    PORTADA / ABOUT / WORK / WELCOME
 ========================================= */
 
-/* TIPOGRAFÍAS */
+/* =========================================
+   TIPOGRAFÍAS
+========================================= */
+
+/* DRUK WIDE BOLD — WOFF2 + WOFF */
+
+@font-face {
+    font-family: 'Druk Wide Bold';
+    src:
+        url('../fonts/Druk-Wide-Bold.woff2') format('woff2'),
+        url('../fonts/Druk-Wide-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* FOLD GROTESQUE — SIN CAMBIOS */
 
 @font-face {
     font-family: 'Fold Grotesque';
@@ -1212,15 +1228,11 @@ body.dark-theme .about-ellipse {
 .welcome-section {
     position: relative;
 
-    /* La sección azul cubre las líneas
-       laterales de la retícula general */
-
     z-index: 10;
     isolation: isolate;
 
     width: 100vw;
 
-    /* Una pantalla exacta */
     height: 100vh;
     height: 100dvh;
 
@@ -1497,7 +1509,6 @@ body.dark-theme .work-category.is-active {
     color: #ff5b00;
 }
 
-
 /* =========================================
    02 — WELCOME EN DARK MODE
 ========================================= */
@@ -1530,7 +1541,6 @@ body.dark-theme
     color: #ff5b00;
 }
 
-
 /* =========================================
    03 — BLOQUES DEL MOUSE EN DARK MODE
 ========================================= */
@@ -1555,7 +1565,6 @@ body.dark-theme
     color: #000000;
 }
 
-
 /* =========================================
    04 — RETÍCULA WORK EN MÓVIL
 ========================================= */
@@ -1571,5 +1580,4 @@ body.dark-theme
         border-left: 0;
         border-top: 1px solid #ff5b00;
     }
-
 }
